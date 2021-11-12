@@ -1,7 +1,8 @@
-from bisect import bisect_right, bisect_left
+from collections import deque
+import heapq
+from statistics import median_low
+liquid_list = [1,2,3,10,11,12,15]
+a = median_low(liquid_list)
 
-a = [1,2,3,4,4,8]
-x = 4
+print(a)
 
-print(bisect_left(a,x))
-print(bisect_right(a,x))
