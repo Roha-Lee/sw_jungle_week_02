@@ -1,5 +1,7 @@
-a= '(((()())()'
-list(a)
+from collections import deque
 
-print(list(a))
+
+a= deque(range(4))
+a.rotate(-1)
+print(a)
 
