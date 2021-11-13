@@ -1,29 +1,28 @@
 import sys
-from collections import deque
 
 t = int(input())
 
 for _ in range(t):
     
-    vps = list(map(str,sys.stdin.readline().strip().split()))
-    if vps[-1] == "(" or vps[0]==")":
-        print("NO")
-    else:
+    vps_list = list(sys.stdin.readline().strip())
         
-        while len(vps) > 1:
-            stack1 = deque([])
-            stack2 = deque([])
-            if vps[-1] == vps[-2] and stack1[-1] == vps[-1]:
-                stack1.append(vps.pop())
-            elif vps[-1] == vps[-2] and stack1[-1] != vps[-1]:
-                print("NO")
+    while vps_list:
+        if vps_list[0] == ")" or vps_list[-1] == "(" :
+            stack = []
+            break
+        stack = []
+        stack.append(vps_list.pop(0))
+        while stack:
+            if len(vps_list) == 0:
                 break
-            elif len(stack1) == 0 or stack1[-1] == vps[-1]:
-                stack1.append(vps.pop())
+            elif vps_list[0] == stack[-1]:
+                stack.append(vps_list.pop(0))
             else:
-                comparelist = list(map(lambda x : ")" if x == "(" else"(", stack1))
-                if vps[-1:-len(stack1)-1:-1] == comparelist:
-                    del vps[-1:-len(stack1)-1:-1]
-                else:
-                    print("NO")
-                    break
+                del vps_list[0]
+                del stack[-1]   
+    if len(stack) != 0 or len(vps_list) != 0:
+        print("NO")
+        continue
+    else:
+        print("YES")
+
