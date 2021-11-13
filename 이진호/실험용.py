@@ -1,7 +1,11 @@
 from collections import deque
+import sys
 
 
-a= deque(range(4))
-a.rotate(-1)
-print(a)
+
+b = [1,2,3,4]
+
+sys.stdout.write("<")
+print(*b,sep=", ",end="")
+sys.stdout.write(">")
 
