@@ -1,5 +1,5 @@
 import sys
-from bisect import bisect_left, bisect_right
+
 def find_closest_two_value(liquids):
     left, right = 0, len(liquids) - 1
     best = float('inf')
@@ -15,7 +15,7 @@ def find_closest_two_value(liquids):
             left += 1
     return num1, num2
 
-    
+ 
 if __name__ == '__main__':
     input = sys.stdin.readline
     
@@ -23,4 +23,3 @@ if __name__ == '__main__':
     liquids = sorted(list(map(int, input().split())))
     
     print(*find_closest_two_value(liquids))
-    
