@@ -1,7 +1,7 @@
 import sys 
 from heapq import heappush, heappop
 
-def find_num_of_people_in_best_rail(rails, n, length):
+def find_num_of_people_in_best_rail(rails, length):
     rails = sorted(rails, key = lambda x: x[1])
     prior_q = []
     best_num = 0
@@ -24,7 +24,7 @@ if __name__ == '__main__':
         rails.append( (min(a, b), max(a, b)) )
     length = int(input())
 
-    print(find_num_of_people_in_best_rail(rails, n, length))
+    print(find_num_of_people_in_best_rail(rails, length))
 
 
 ## counter examples
